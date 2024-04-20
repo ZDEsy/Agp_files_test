@@ -99,6 +99,7 @@ public class HangMan extends HangmanMain{
         unders = new StringBuilder();
         word.setText(GenerateUnder());
         inputGuess.setText(null);
+        setMistakesCount(0);
         mistakes.setText("Počet chyb: " + getMistakesCount());
         System.out.println(guessWord);
     }
