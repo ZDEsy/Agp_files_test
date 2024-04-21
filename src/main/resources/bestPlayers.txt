@@ -1,2 +1,6 @@
-Jméno: f, Počet chyb: 0
-Jméno: bbb, Počet chyb: 0
+Honza 0
+Helda 10
+ZDEsy 4
+Jan 7
+ZDEsy 5
+Pleskač 1

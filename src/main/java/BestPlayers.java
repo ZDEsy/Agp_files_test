@@ -17,9 +17,16 @@ public class BestPlayers extends HangmanMain{
         Components();
         playerList.setModel(list);
         List<String> lines = Files.readAllLines(getPathPlayers());
+        String[] lineString;
         for(String line : lines)
         {
-            list.addElement(line);
+            lineString = line.split(" ");
+            players.add(new Player(lineString[0],Integer.parseInt(lineString[1])));
+        }
+        players.sort(Comparator.comparingInt(Player::getMistakesCount));
+        for(Player player : players)
+        {
+            list.addElement("Jméno: " + player.getName() + ", Počet chyb: " + player.getMistakesCount());
         }
     }
 }

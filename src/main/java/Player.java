@@ -1,10 +1,19 @@
 import javax.swing.*;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player extends JFrame {
     private String name;
     private int mistakesCount;
     private final Path pathPlayers = Path.of(System.getProperty("user.home"),"\\IdeaProjects\\Agp_files_test\\src\\main\\resources\\bestPlayers.txt");
+    List<Player> players = new ArrayList<>();
+    public Player(){}
+    public Player(String name, int mistakesCount)
+    {
+        this.name = name;
+        this.mistakesCount = mistakesCount;
+    }
     public void setMistakesCount(int mistakesCount) {
         this.mistakesCount = mistakesCount;
     }
