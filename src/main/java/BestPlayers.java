@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BestPlayers extends HangmanMain{
@@ -15,8 +17,8 @@ public class BestPlayers extends HangmanMain{
         Components();
         playerList.setModel(list);
         List<String> lines = Files.readAllLines(getPathPlayers());
-        Collections.sort(lines);
-        for (String line : lines) {
+        for(String line : lines)
+        {
             list.addElement(line);
         }
     }

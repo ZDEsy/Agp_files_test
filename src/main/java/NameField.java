@@ -12,18 +12,18 @@ public class NameField extends HangmanMain{
     private JLabel winLabel;
     private JLabel nameLabel;
     private JButton submitButton;
-    String name;
     private JPanel mainPane;
+    Player player;
 
-    public NameField() {
+    public NameField(int mistakesCount) {
         setMainPane(mainPane);
         Components();
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                name = nameInput.getText();
+                setName(nameInput.getText());
                 try {
-                    Files.writeString(getPathPlayers(),name + ", Počet chyb: " + getMistakesCount() + System.lineSeparator(), StandardOpenOption.APPEND);
+                    Files.writeString(getPathPlayers(),"Jméno: " + nameInput.getText() + ", Počet chyb: " + mistakesCount + System.lineSeparator(), StandardOpenOption.APPEND);
                     new BestPlayers();
                     dispose();
                 } catch (IOException ex) {

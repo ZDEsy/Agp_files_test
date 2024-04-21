@@ -19,8 +19,7 @@ public class HangMan extends HangmanMain{
     private JLabel mistakes;
     private String guessWord;
     private StringBuilder unders = new StringBuilder();
-    int i = getMistakesCount();
-
+    private int i = 0;
     public HangMan() throws IOException {
         setMainPane(mainPane);
         Components();
@@ -33,7 +32,7 @@ public class HangMan extends HangmanMain{
                 if(guessWord.equals(inputGuess.getText()))
                 {
                     word.setText(guessWord);
-                    new NameField();
+                    new NameField(getMistakesCount());
                 }
                 else
                 {
