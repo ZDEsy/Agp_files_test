@@ -7,7 +7,7 @@ public class Player extends JFrame {
     private String name;
     private int mistakesCount;
     private final Path pathPlayers = Path.of(System.getProperty("user.home"),"\\IdeaProjects\\Agp_files_test\\src\\main\\resources\\bestPlayers.txt");
-    List<Player> players = new ArrayList<>();
+    private final List<Player> players = new ArrayList<>();
     public Player(){}
     public Player(String name, int mistakesCount)
     {
@@ -34,5 +34,14 @@ public class Player extends JFrame {
 
     public Path getPathPlayers() {
         return pathPlayers;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void AddPlayer(String name, int mistakesCount)
+    {
+        players.add(new Player(name, mistakesCount));
     }
 }

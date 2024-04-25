@@ -9,7 +9,7 @@ public class NameField extends HangmanMain{
     private JLabel nameLabel;
     private JButton submitButton;
     private JPanel mainPane;
-    Player player;
+    private Player player;
 
     public NameField(int mistakesCount) {
         setMainPane(mainPane);

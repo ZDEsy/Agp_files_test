@@ -18,10 +18,10 @@ public class BestPlayers extends HangmanMain{
         for(String line : lines)
         {
             lineString = line.split(" ");
-            players.add(new Player(lineString[0],Integer.parseInt(lineString[1])));
+            AddPlayer(lineString[0],Integer.parseInt(lineString[1]));
         }
-        players.sort(Comparator.comparingInt(Player::getMistakesCount));
-        for(Player player : players)
+        getPlayers().sort(Comparator.comparingInt(Player::getMistakesCount));
+        for(Player player : getPlayers())
         {
             list.addElement("Jméno: " + player.getName() + ", Počet chyb: " + player.getMistakesCount());
         }
