@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.nio.file.Path;
-import java.nio.file.Files;
 
 public class HangmanMain extends Player {
     private JPanel mainPane;

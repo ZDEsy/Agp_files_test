@@ -1,8 +1,4 @@
-import javax.naming.Name;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,50 +22,39 @@ public class HangMan extends HangmanMain{
         guessWord = GenerateWord();
         word.setText(GenerateUnder());
         System.out.println(guessWord);
-        tip.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(guessWord.equals(inputGuess.getText()))
+        tip.addActionListener(e -> {
+            if(guessWord.equals(inputGuess.getText()))
+            {
+                word.setText(guessWord);
+                new NameField(getMistakesCount());
+            }
+            else
+            {
+                for(int i = 0; i < guessWord.length(); i++)
                 {
-                    word.setText(guessWord);
-                    new NameField(getMistakesCount());
+                    if(guessWord.charAt(i) == inputGuess.getText().charAt(0))
+                    {
+                        unders.setCharAt(i,inputGuess.getText().charAt(0));
+                        word.setText(unders.toString());
+                    }
                 }
-                else
+
+                if(!guessWord.contains(inputGuess.getText().substring(0,1)))
                 {
-                    for(int i = 0; i < guessWord.length(); i++)
-                    {
-                        if(guessWord.charAt(i) == inputGuess.getText().charAt(0))
-                        {
-                            unders.setCharAt(i,inputGuess.getText().charAt(0));
-                            word.setText(unders.toString());
-                        }
-                    }
-
-                    if(!guessWord.contains(inputGuess.getText().substring(0,1)))
-                    {
-                        i++;
-                        setMistakesCount(i);
-                        mistakes.setText("Počet chyb: " + getMistakesCount());
-                    }
-
+                    i++;
+                    setMistakesCount(i);
+                    mistakes.setText("Počet chyb: " + getMistakesCount());
                 }
 
             }
+
         });
-        restart.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Restart();
-            }
-        });
-        bestPlayers.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    new BestPlayers();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+        restart.addActionListener(e -> Restart());
+        bestPlayers.addActionListener(e -> {
+            try {
+                new BestPlayers();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
     }
@@ -84,7 +69,7 @@ public class HangMan extends HangmanMain{
 
     public String GenerateUnder()
     {
-        unders.append("_".repeat(guessWord.length()));
+        unders.append("-".repeat(guessWord.length()));
         return unders.toString();
     }
 

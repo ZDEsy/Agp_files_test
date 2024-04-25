@@ -7,3 +7,4 @@ Pleskač 1
 JakubLisy 0
 JakubLisy 0
 David 0
+g 0
