@@ -15,28 +15,22 @@ public class ShopList extends JFrame {
     {
         super("Nákupní list");
         Components();
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                shopList.setModel(list);
-                list.addElement(textField.getText());
-            }
+        addButton.addActionListener(e -> {
+            shopList.setModel(list);
+            list.addElement(textField.getText());
         });
 
 
-        remButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try
-                {
-                    list.remove(shopList.getSelectedIndex());
-                }
-                catch (Exception j)
-                {
-                    JOptionPane.showMessageDialog(null,"Nešlo nic");
-                }
-
+        remButton.addActionListener(e -> {
+            try
+            {
+                list.remove(shopList.getSelectedIndex());
             }
+            catch (Exception j)
+            {
+                JOptionPane.showMessageDialog(null,"Nešlo nic");
+            }
+
         });
     }
     private void Components()
