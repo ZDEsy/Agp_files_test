@@ -13,6 +13,7 @@ public class HangmanMain extends Player {
     {
         setContentPane(mainPane);
         mainPane.setMinimumSize(new Dimension(500,500));
+        setTitle("HangMan");
         setSize(new Dimension(500,500));
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);

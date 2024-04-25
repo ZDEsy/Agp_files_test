@@ -1,11 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ShopList extends JFrame {
     private JPanel mainPane;
-    DefaultListModel<String> list = new DefaultListModel<>();
+    private final DefaultListModel<String> list = new DefaultListModel<>();
     private JList<String> shopList;
     private JTextField textField;
     private JButton addButton;
@@ -37,6 +35,7 @@ public class ShopList extends JFrame {
     {
         setContentPane(mainPane);
         mainPane.setMinimumSize(new Dimension(500,500));
+        setTitle("ShopList");
         setSize(new Dimension(500,500));
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
