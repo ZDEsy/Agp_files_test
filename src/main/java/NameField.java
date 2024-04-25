@@ -24,7 +24,7 @@ public class NameField extends HangmanMain{
                 setName(nameInput.getText());
                 try {
                     player = new Player(nameInput.getText(),mistakesCount);
-                    Files.writeString(getPathPlayers(),player.getName() + " " + player.getMistakesCount() + System.lineSeparator(),StandardOpenOption.APPEND);
+                    Files.writeString(getPathPlayers(),player.getName().replaceAll("\\s+","") + " " + player.getMistakesCount() + System.lineSeparator(),StandardOpenOption.APPEND);
                     new BestPlayers();
                     dispose();
                 } catch (IOException ex) {
